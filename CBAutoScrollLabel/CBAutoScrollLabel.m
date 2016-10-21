@@ -283,7 +283,7 @@ static void each_object(NSArray *objects, void (^block)(id object)) {
     [self performSelector:@selector(enableShadow) withObject:nil afterDelay:self.pauseInterval];
 
     // animate the scrolling
-    NSTimeInterval duration = labelWidth / self.scrollSpeed;
+    NSTimeInterval duration = (labelWidth + self.labelSpacing) / self.scrollSpeed;
     [UIView animateWithDuration:duration delay:self.pauseInterval options:self.animationOptions | UIViewAnimationOptionAllowUserInteraction animations:^{
          // adjust offset
          self.scrollView.contentOffset = (doScrollLeft ? CGPointMake(labelWidth + self.labelSpacing, 0) : CGPointZero);
